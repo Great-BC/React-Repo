@@ -32,9 +32,13 @@ function Stopwatch() {
     function formatTime() {
         let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
         let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(elapsedTime / (1000 % 60));
+        let seconds = Math.floor(elapsedTime / (1000) % 60);
         let milliseconds = Math.floor((elapsedTime % 1000)/ 10); 
-        return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+        return (`${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}:${padZero(milliseconds)}`);
+    }
+
+    function padZero(number) {
+        return  (number < 10 ? "0" + number : number);
     }
 
     return(
@@ -44,7 +48,7 @@ function Stopwatch() {
             <div className="controls">
                 <button className="start-button" onClick={start}>start</button>
                 <button className="stop-button" onClick={stop}>stop</button>
-                <button className="reset-button" onClick={reset()}>reset</button>
+                <button className="reset-button" onClick={reset}>reset</button>
             </div>
 
         </div>
