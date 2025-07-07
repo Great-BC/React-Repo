@@ -30,13 +30,13 @@ export default function Accordion() {
   return (
     <>
       {/* Multi select Button */}
-      <div>
-        <button
+      <div className='flex justify-center mt-5'>
+        <button className='border-1 p-2 rounded-lg text-white'
           onClick={() => {
             toggleMultiSelection();
           }}
         >
-          Multi-Select:{" "}
+          Multi-Select:  <span className='font-medium'>{isMultiSelected == false ? "Disabled" : "Enabled"}</span>
         </button>
       </div>
       {/* Accordion Items */}
